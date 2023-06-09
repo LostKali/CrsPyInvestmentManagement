@@ -312,7 +312,7 @@ def msr(riskfree_rate, er, cov):
 
 def gmv(cov):
     """
-    Return the weight of the Global Minimum Vol portfolio
+    Return the weight of the Global Minimum Vol (Variance) portfolio
     give the covariance matrix
     """
     n = cov.shape[0]
@@ -322,6 +322,9 @@ def gmv(cov):
 def plot_ef(n_points, er, cov, show_cml=False, style='.-', riskfree_rate=0, show_ew=False, show_gmv=False):
     """
     Plots the N-asset efficient frontier
+    show_cml - show capital-market line
+    show_ew - show equally-weighted portfolio
+    show_gmv - show global minimum variance portfolio
     """
     weights = optimal_weights(n_points, er, cov)
     rets = [portfolio_return(w, er) for w in weights]
